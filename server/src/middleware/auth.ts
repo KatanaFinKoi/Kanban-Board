@@ -5,25 +5,24 @@ interface JwtPayload {
   username: string;
 }
 
-export const authenticateToken = (_req: Request, _res: Response, next: NextFunction) => {
-  // Extract the token from the Authorization header
-  const authHeader = _req.headers.authorization;
-  const token = authHeader && authHeader.split(' ')[1]; // Format: "Bearer <token>"
+export const authenticateToken = (req: Request, res: Response, next: NextFunction) => {
+  const authHeader = req.headers.authorization;
+  const token = authHeader && authHeader.split(' ')[1];
 
   if (!token) {
-    return _res.status(401).json({ error: 'Unauthorized: Token not provided' });
+    return res.status(401).json({ error: 'Unauthorized: Token not provided' });
   }
 
   try {
-    const secretKey = process.env.JWT_SECRET || 'your_jwt_secret_key'; // Use a secure way to manage secrets
+    const secretKey = process.env.JWT_SECRET_KEY || 'your_jwt_secret_key'; 
     const decoded = jwt.verify(token, secretKey) as JwtPayload;
 
-    // Add user data to the request object
-    _req.user = decoded;
+    req.user = decoded;
 
-    next(); // Proceed to the next middleware or route handler
   } catch (error) {
-    _res.status(403).json({ error: 'Forbidden: Invalid or expired token' });
+    return res.status(403).json({ error: 'Forbidden: Invalid or expired token' });
   }
+  return next();
 };
+
 
