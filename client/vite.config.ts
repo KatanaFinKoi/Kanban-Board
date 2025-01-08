@@ -7,12 +7,12 @@ export default defineConfig({
     open: true,
     proxy: {
       '/api': {
-        target: 'http://localhost:3001',
+        target: 'https://kanban-board-rptx.onrender.com',
         changeOrigin: true,
         secure: false,
       },
       '/auth': {
-        target: 'http://localhost:3001',
+        target: 'https://kanban-board-rptx.onrender.com',
         changeOrigin: true,
         secure: false
       },
