@@ -1,7 +1,11 @@
 
 # Kanban Board with JWT Authentication
 
-This project is a Kanban board application that incorporates secure authentication using JSON Web Tokens (JWT). The goal of this project is to enhance an existing Kanban board by adding authentication features to both the client and server and deploying the application to Render.
+This project is a Kanban board application that incorporates secure authentication using JSON Web Tokens (JWT). The goal of this project is to enhance an existing Kanban board by adding authentication features to both the client and server and deploying the application to Render. this application is live at: https://kanban-board-rptx.onrender.com/ 
+
+## Preview
+
+![website screenshot](screenshots/web-screenshot.png)
 
 ## Features
 
