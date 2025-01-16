@@ -10,12 +10,12 @@ export default defineConfig({
     open: true,
     proxy: {
       '/api': {
-        target: process.env.DB_URL || 'http://localhost:3001',
+        target: process.env.VITE_DB_URL || 'http://localhost:3001',
         changeOrigin: true,
         secure: false,
       },
       '/auth': {
-        target: process.env.DB_URL || 'http://localhost:3001',
+        target: process.env.VITE_DB_URL || 'http://localhost:3001',
         changeOrigin: true,
         secure: false
       },
