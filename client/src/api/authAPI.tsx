@@ -2,7 +2,8 @@ import type { UserLogin } from '../interfaces/UserLogin';
 
 const login = async (userInfo: UserLogin) => {
   try {
-    const response = await fetch('/auth/login', {
+    const baseUrl = import.meta.env.VITE_API_BASE_URL || '';
+    const response = await fetch(`${baseUrl}/auth/login`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
