@@ -1,4 +1,7 @@
 import { defineConfig } from 'vite';
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -7,12 +10,12 @@ export default defineConfig({
     open: true,
     proxy: {
       '/api': {
-        target: 'http://localhost:3001',
+        target: process.env.DB_URL || 'http://localhost:3001',
         changeOrigin: true,
         secure: false,
       },
       '/auth': {
-        target: 'http://localhost:3001',
+        target: process.env.DB_URL || 'http://localhost:3001',
         changeOrigin: true,
         secure: false
       },
