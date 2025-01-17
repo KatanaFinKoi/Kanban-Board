@@ -9,12 +9,12 @@ export default defineConfig({
     open: true,
     proxy: {
       '/api': {
-        target: process.env.VITE_API_BASE_URL || 'http://localhost:3001',
+        target: process.env.VITE_API_BASE_URL,
         changeOrigin: true,
         secure: false,
       },
       '/auth': {
-        target: process.env.VITE_API_BASE_URL || 'http://localhost:3001',
+        target: process.env.VITE_API_BASE_URL,
         changeOrigin: true,
         secure: false
       },
